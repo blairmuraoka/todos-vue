@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todos</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<div id="app-container" class="container">
+		<div id="app">
+			<div class="col-xs-12 col-md-12 col-lg-6 col-centered">
+				<div id="filter-wrapper">
+					<ul v-bind:class="active">
+						<li id="all" class="col-xs-3 col-sm-2 col-lg-2"><a v-on:click="active = 'all'" href="#" >All</a></li>
+						<li id="todo" class="col-xs-3 col-sm-2 col-lg-2"><a v-on:click="active = 'todo'" href="#" >To do</a></li>
+						<li id="completed" class="col-xs-6 col-sm-2 col-lg-2"><a v-on:click="active = 'completed'" href="#" >Completed</a></li>
+					</ul>
+				</div>
+				<div id="input-wrapper">
+					<input type="text" class="form-control" placeholder="Enter text" @keyup.enter="addTodo" v-model="todo">
+				</div>
+				<div id="todo-wrapper">
+					<ul class="list-group">
+						<li class="list-group-item" id="check-all">
+							<input type="checkbox" 
+							  v-model="all"
+							  v-on:click="checkAll">
+							<span class="completed">Select/Deselect All</span>
+						</li>
+						<li class="list-group-item" v-for="(todo, index) in filteredItems" v-bind:class="{ true: todo.completed }">
+							<input type="checkbox" 
+							  v-model="todo.completed"
+							  v-on:click="completedTimeHandler(todo)">
+							<span class="completed" v-bind:class="{ true: todo.completed }">{{todo.name}}</span>
+							<span class="pull-right">&nbsp;<i v-on:click="removeTodo(index)" class="material-icons" style="cursor: pointer">close</i></span>
+							<span class="pull-right">{{todo.time}}</i></span>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- then jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- then Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!-- Materialize Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Vue.js -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- Axios -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- Moment -->
+	<script src="js/moment.js"></script>
+	<!-- Custom JS -->
+	<script src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+body {
+	background-color: #eee;
+}
+
+#app-container {
+	margin-top: 10%;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+.col-centered {
+	border-width: 1px;
+	border-style: solid;
+	background-color: #ffffff;
+	padding: 0;
+	float: none;
+	margin: 0 auto;
+}
+
+#title-wrapper {
+	background-color: #5C257F;
+	color: #fff;
+	overflow: auto;
+}
+
+#input-wrapper {
+	margin: 5px 10px;
+}
+
+#todo-wrapper {
+	height: 400px;
+	overflow: auto;
+}
+
+#filter-wrapper {
+	background-color: #6b2b94;
+} a {
+	color: #fff;
+} ul {
+	position: relative;
+	padding: 0;
+}
+
+#filter-wrapper ul li {
+	display: inline-block;
+	padding: 5px 0px;
+	list-style: none;
+	text-align: center;
+} 
+
+#filter-wrapper ul li:hover {
+	background-color: #9a68ba;
+} 
+
+#filter-wrapper ul li a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+ul.all #all,
+ul.todo #todo,
+ul.completed #completed {
+	background-color: #D697FF;
+}
+
+.list-group-item {
+	border: none;
+}
+
+.list-group-item:hover {
+	background-color: #f3e0ff;
+	border-radius: 0;
+}
+
+.list-group-item.true {
+	background-color: #e3e3e3;
+	border-radius: 0;
+}
+
+.list-group-item.true:hover {
+	background-color: none;
+} 
+
+#check-all {
+	border-bottom: solid;
+	border-color: #ededed;
+	padding: 0.25rem 1.25rem;
+}
+
+#check-all:hover {
+	background-color:#fff;
+}
+
+span.completed {
+	margin-left: 10px;
+}
+
+.completed.true {
+	text-decoration: line-through;
+}
+
+.delete-icon {
+	color: #ff0000;
+	cursor: pointer;
+}
